@@ -11,13 +11,18 @@ def check_password_strength(password):
         
         
         else:
-            #Using "any" function and list comprehension: "any" fun returns True value if it finds even one true value in an itreable argument. And list comprehension is efficient way of using for loop. The following code checks if those four characters are found in the password. 
+            '''Using "any" function and list comprehension: "any" fun returns True value 
+            if it finds even one true value in an itreable argument.
+            And list comprehension is efficient way of using for loop.
+            The following code checks if those four characters are found in the password.''' 
             upper_case = any(char.isupper() for char in password)
             lower_case = any(char.islower() for char in password)
             digits = any(char.isdigit() for char in password)
             special_characters = any( char in " ! @ # $ % ^ & * (  ) _ + - = [ ]}  {  ' | / ? . , " for char in password)
 
-            #The following code adds the truth values of the characters found in the password and if the passowrd doesn't have all the characters it returns the missing types of character using list append method.  
+            '''The following code adds the truth values of the characters found in the password 
+            and if the passowrd doesn't have all the characters, 
+            it returns the missing types of character using list append method.'''  
             character_type_requirement = sum([upper_case, lower_case, digits, special_characters])
             if character_type_requirement < 4 :
                 missing_character = []
